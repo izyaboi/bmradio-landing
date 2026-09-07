@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz | BmRadio</title>
+  <meta name="description" content="Datenschutzerkl&auml;rung von BmRadio.">
+  <link rel="stylesheet" href="legal.css">
+</head>
+<body>
+  <header><div class="header-inner">
+    <a class="brand" href="index.html"><img class="brand-logo" src="bmradio-logo.png" alt="BmRadio"><span>BmRadio</span></a>
+    <nav><a href="index.html"><span data-lang="de">Startseite</span><span data-lang="en">Home</span></a><a href="impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html" aria-current="page"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a></nav>
+    <a class="header-cta" href="index.html#download"><span data-lang="de">App laden</span><span data-lang="en">Get the app</span></a>
+    <div class="lang-switch" aria-label="Language"><button type="button" data-lang-button="de" aria-pressed="true">DE</button><button type="button" data-lang-button="en" aria-pressed="false">EN</button></div>
+  </div></header>
+  <main>
+    <div class="eyebrow"><span data-lang="de">Rechtliches</span><span data-lang="en">Legal</span></div>
+    <h1><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></h1>
+    <p class="intro"><span data-lang="de">Wir behandeln deine Daten verantwortungsvoll und erheben nur, was f&uuml;r den Betrieb dieser Website und der BmRadio-App erforderlich ist.</span><span data-lang="en">We handle your data responsibly and only collect what is necessary to operate this website and the BmRadio app.</span></p>
+    <p class="updated"><span data-lang="de">Stand: 7. September 2026</span><span data-lang="en">Last updated: September 7, 2026</span></p>
+    <section>
+      <h2><span data-lang="de">1. Verantwortlicher</span><span data-lang="en">1. Controller</span></h2>
+      <p><span data-lang="de">Verantwortlich f&uuml;r die Datenverarbeitung ist der im <a href="impressum.html">Impressum</a> genannte Anbieter.</span><span data-lang="en">The provider named in the <a href="impressum.html">imprint</a> is responsible for processing your data.</span></p>
+    </section>
+    <section>
+      <h2><span data-lang="de">2. Besuch der Website</span><span data-lang="en">2. Visiting the website</span></h2>
+      <p><span data-lang="de">Beim Aufruf der Website verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten (zum Beispiel IP-Adresse, Zeitpunkt und angeforderte Datei), um die Website auszuliefern und sicher zu betreiben. Diese Daten werden nach den gesetzlichen Vorgaben und nur so lange gespeichert, wie es f&uuml;r den Betrieb und die Sicherheit erforderlich ist.</span><span data-lang="en">When you visit this website, the hosting provider processes technically necessary connection data, such as your IP address, timestamp, and requested file, to deliver and secure the website. This data is retained only as long as required for operation and security.</span></p>
+    </section>
+    <section>
+      <h2><span data-lang="de">3. Externe Inhalte</span><span data-lang="en">3. External content</span></h2>
+      <p><span data-lang="de">Diese Website kann Schriftarten oder Bibliotheken von externen Anbietern laden. Dabei kann deine IP-Adresse an den jeweiligen Anbieter &uuml;bermittelt werden. Wir pr&uuml;fen externe Einbindungen regelm&auml;&szlig;ig und entfernen sie, wenn sie f&uuml;r den Betrieb nicht erforderlich sind.</span><span data-lang="en">This website may load fonts or libraries from external providers. Your IP address may be transmitted to those providers. We regularly review external resources and remove them when they are not required for operation.</span></p>
+    </section>
+    <section>
+      <h2><span data-lang="de">4. Deine Rechte</span><span data-lang="en">4. Your rights</span></h2>
+      <p><span data-lang="de">Du hast im Rahmen der gesetzlichen Voraussetzungen das Recht auf Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung der Verarbeitung, Daten&uuml;bertragbarkeit und Widerspruch. Au&szlig;erdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbeh&ouml;rde.</span><span data-lang="en">Subject to the applicable legal requirements, you have the right to access, correct, delete, restrict processing, data portability, and object. You also have the right to lodge a complaint with a data protection supervisory authority.</span></p>
+    </section>
+    <section>
+      <h2><span data-lang="de">5. Kontakt</span><span data-lang="en">5. Contact</span></h2>
+      <p><span data-lang="de">Fragen zum Datenschutz kannst du an die im <a href="impressum.html">Impressum</a> angegebene Kontaktadresse richten.</span><span data-lang="en">For privacy questions, contact us using the address provided in the <a href="impressum.html">imprint</a>.</span></p>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><img class="footer-logo" src="bmradio-logo.png" alt="BmRadio"><span><span data-lang="de">&copy; 2026 BmRadio. Alle Rechte vorbehalten.</span><span data-lang="en">&copy; 2026 BmRadio. All rights reserved.</span></span><div class="footer-links"><a href="impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a></div></div></footer>
+  <script>
+    const setLanguage = (language) => {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-lang]').forEach((element) => {
+        element.hidden = element.dataset.lang !== language;
+      });
+      document.querySelectorAll('[data-lang-button]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.langButton === language));
+      });
+      localStorage.setItem('bmradio-lang', language);
+    };
+    document.querySelectorAll('[data-lang-button]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.langButton)));
+    setLanguage(localStorage.getItem('bmradio-lang') === 'en' ? 'en' : 'de');
+    document.querySelectorAll('a[href]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const destination = new URL(link.href, window.location.href);
+        if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        document.body.classList.add('is-leaving');
+        const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 220;
+        window.setTimeout(() => { window.location.href = destination.href; }, delay);
+      });
+    });
+  </script>
+</body>
+</html>
