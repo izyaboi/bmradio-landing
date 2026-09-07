@@ -13,6 +13,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: radial-gradient(circle at 85% 0, rgba(255,149,0,.12), transparent 34rem), url("bmradio-texture.png") repeat, var(--bg);
   color: var(--text);
   font: 16px/1.7 Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -125,7 +128,7 @@ nav a:hover, nav a[aria-current="page"] { color: #fff; background: rgba(255,255,
 
 .lang-switch button[aria-pressed="true"] { color: #111; background: var(--accent); }
 
-main { padding: 72px 0 100px; }
+main { flex: 1; padding: 72px 0 80px; }
 .not-found { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
 .not-found .header-cta { margin-top: 24px; }
 .not-found .lang-switch { margin-top: 16px; }
