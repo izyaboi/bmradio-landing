@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutzungsbedingungen | BmRadio</title>
+  <meta name="description" content="Nutzungsbedingungen von BmRadio.">
+  <link rel="stylesheet" href="legal.css">
+</head>
+<body>
+  <header><div class="header-inner">
+    <a class="brand" href="index.html"><img class="brand-logo" src="bmradio-logo.png" alt="BmRadio"><span>BmRadio</span></a>
+    <nav><a href="index.html"><span data-lang="de">Startseite</span><span data-lang="en">Home</span></a><a href="impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a><a href="terms.html" aria-current="page"><span data-lang="de">Nutzung</span><span data-lang="en">Terms</span></a></nav>
+    <a class="header-cta" href="index.html#download"><span data-lang="de">App laden</span><span data-lang="en">Get the app</span></a>
+    <div class="lang-switch" aria-label="Language"><button type="button" data-lang-button="de" aria-pressed="true">DE</button><button type="button" data-lang-button="en" aria-pressed="false">EN</button></div>
+  </div></header>
+  <main>
+    <div class="legal-content">
+      <div class="eyebrow"><span data-lang="de">Rechtliches</span><span data-lang="en">Legal</span></div>
+      <h1><span data-lang="de">Nutzungsbedingungen</span><span data-lang="en">Terms of Use</span></h1>
+      <p class="intro"><span data-lang="de">Diese Bedingungen regeln die Nutzung der BmRadio-Website und -App.</span><span data-lang="en">These terms govern your use of the BmRadio website and app.</span></p>
+      <p class="updated"><span data-lang="de">Stand: 7. September 2026</span><span data-lang="en">Last updated: September 7, 2026</span></p>
+      <section><h2><span data-lang="de">1. Anbieter</span><span data-lang="en">1. Provider</span></h2><p><span data-lang="de">Anbieter ist die im <a href="impressum.html">Impressum</a> genannte Person oder Firma.</span><span data-lang="en">The provider is the person or company named in the <a href="impressum.html">imprint</a>.</span></p></section>
+      <section><h2><span data-lang="de">2. Nutzung</span><span data-lang="en">2. Use</span></h2><p><span data-lang="de">BmRadio darf nur im Rahmen der geltenden Gesetze und dieser Bedingungen genutzt werden. Die Zugangsdaten und verbundenen Konten sind sicher zu verwahren.</span><span data-lang="en">BmRadio may only be used in accordance with applicable law and these terms. Keep access credentials and connected accounts secure.</span></p></section>
+      <section><h2><span data-lang="de">3. Inhalte und Verfügbarkeit</span><span data-lang="en">3. Content and availability</span></h2><p><span data-lang="de">Radioinhalte können von Drittanbietern stammen und sich ändern. Wir bemühen uns um einen zuverlässigen Betrieb, können eine unterbrechungsfreie Verfügbarkeit jedoch nicht garantieren.</span><span data-lang="en">Radio content may come from third parties and may change. We aim to provide a reliable service but cannot guarantee uninterrupted availability.</span></p></section>
+      <section><h2><span data-lang="de">4. Drittanbieter</span><span data-lang="en">4. Third parties</span></h2><p><span data-lang="de">Für Dienste wie Spotify gelten zusätzlich die jeweiligen Bedingungen und Datenschutzbestimmungen dieser Anbieter.</span><span data-lang="en">Services such as Spotify are also subject to the respective providers' terms and privacy policies.</span></p></section>
+      <section><h2><span data-lang="de">5. Änderungen</span><span data-lang="en">5. Changes</span></h2><p><span data-lang="de">Wir können diese Bedingungen anpassen, wenn dies für den Dienst oder aufgrund gesetzlicher Änderungen erforderlich ist. Die aktuelle Fassung wird auf dieser Seite veröffentlicht.</span><span data-lang="en">We may update these terms when necessary for the service or due to legal changes. The current version is published on this page.</span></p></section>
+      <section><h2><span data-lang="de">6. Kontakt</span><span data-lang="en">6. Contact</span></h2><p><span data-lang="de">Fragen kannst du an die im <a href="impressum.html">Impressum</a> angegebene Kontaktadresse richten.</span><span data-lang="en">Please direct questions to the contact address provided in the <a href="impressum.html">imprint</a>.</span></p></section>
+    </div>
+  </main>
+  <footer><div class="footer-inner"><img class="footer-logo" src="bmradio-logo.png" alt="BmRadio"><span class="footer-copy"><span data-lang="de">&copy; 2026 BmRadio. Alle Rechte vorbehalten.</span><span data-lang="en">&copy; 2026 BmRadio. All rights reserved.</span></span><div class="footer-links"><a href="impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a><a href="terms.html"><span data-lang="de">Nutzung</span><span data-lang="en">Terms</span></a></div></div></footer>
+  <script>
+    const setLanguage = (language) => {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-lang]').forEach((element) => { element.hidden = element.dataset.lang !== language; });
+      document.querySelectorAll('[data-lang-button]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.langButton === language)); });
+      localStorage.setItem('bmradio-lang', language);
+    };
+    document.querySelectorAll('[data-lang-button]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.langButton)));
+    setLanguage(localStorage.getItem('bmradio-lang') === 'en' ? 'en' : 'de');
+    document.querySelectorAll('a[href]').forEach((link) => link.addEventListener('click', (event) => {
+      const destination = new URL(link.href, window.location.href);
+      if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      document.body.classList.add('is-leaving');
+      const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 220;
+      window.setTimeout(() => { window.location.href = destination.href; }, delay);
+    }));
+  </script>
+</body>
+</html>
