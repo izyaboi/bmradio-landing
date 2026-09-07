@@ -1,25 +1,38 @@
 # BmRadio Landing Page
 
-Static single-file landing page. No build step.
+This is a static, no-build website. The simplest and most reliable hosting setup is
+GitHub Pages deployed directly from the `main` branch.
 
-## GitHub Pages
+## Recommended GitHub Pages setup
 
-1. Create a repo (or use an existing one) and copy `index.html` + `.nojekyll` into its **root**.
-2. Commit and push to `main`.
-3. Repo → **Settings → Pages** → Source: **Deploy from a branch**, Branch: `main`, Folder: `/ (root)` → Save.
-4. Wait ~1 min. URL: `https://<user>.github.io/<repo>/`
+1. Push the complete repository to `main`. Keep `index.html`, `.nojekyll`, the legal
+   pages, and all PNG assets in the repository root.
+2. Open **Settings → Pages** in GitHub.
+3. Set **Source** to **Deploy from a branch**.
+4. Select branch `main` and folder `/ (root)`, then click **Save**.
+5. GitHub will publish the site at
+   `https://izyaboi.github.io/bmradio-landing/`.
 
-### Why builds were failing
-`index.html` contains `{{` inside an inlined script. GitHub Pages runs Jekyll by default and its Liquid
-templating treats `{{ }}` as a tag, which aborts the build. The empty `.nojekyll` file at the repo root
-disables Jekyll entirely and serves the files as-is. **It must be committed** — check with
-`git status --ignored` if it seems missing (dotfiles are easy to skip when copying).
+This approach is preferable here to a build workflow because there is no framework,
+dependency installation, or compilation step. Every push to `main` is published as-is.
 
-### Other things that break Pages
-- Pages source never set (Settings → Pages).
-- File committed as `Index.html` or nested in a subfolder that isn't the selected Pages folder.
-- Private repo on a free plan — Pages requires public (or Pro).
-- Landing page dropped into the Kotlin app repo root: fine, but keep `.nojekyll` there too.
+## Custom domain
 
-## Alternative: Actions workflow
-If you prefer a workflow over branch deploys, use `.github/workflows/pages.yml` from this folder.
+For a custom domain, add a root-level `CNAME` file containing only the domain name,
+then configure the domain's DNS records as GitHub describes in **Settings → Pages**.
+Enable **Enforce HTTPS** after DNS verification completes.
+
+## Deployment checklist
+
+- `index.html` is lowercase and at the repository root.
+- `.nojekyll` is committed; it prevents Jekyll from interpreting the embedded script.
+- `impressum.html`, `privacy.html`, `bmradio-logo.png`, `bmradio-texture.png`, and
+  `bmradio-hero.png` are committed alongside the homepage.
+- Replace the bracketed provider and contact details in `impressum.html` before launch.
+- Test the published homepage and both legal-page links after the first deployment.
+
+## Why `.nojekyll` matters
+
+The bundled `index.html` contains `{{` inside an embedded script. Jekyll treats that
+sequence as Liquid syntax, so the empty `.nojekyll` file ensures GitHub serves the
+static files directly.

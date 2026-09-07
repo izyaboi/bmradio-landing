@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum | BmRadio</title>
+  <meta name="description" content="Impressum von BmRadio.">
+  <link rel="stylesheet" href="legal.css">
+</head>
+<body>
+  <header><div class="header-inner">
+    <a class="brand" href="index.html"><img class="brand-logo" src="bmradio-logo.png" alt="BmRadio"><span>BmRadio</span></a>
+    <nav><a href="index.html"><span data-lang="de">Startseite</span><span data-lang="en">Home</span></a><a href="impressum.html" aria-current="page"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a></nav>
+    <a class="header-cta" href="index.html#download"><span data-lang="de">App laden</span><span data-lang="en">Get the app</span></a>
+    <div class="lang-switch" aria-label="Language"><button type="button" data-lang-button="de" aria-pressed="true">DE</button><button type="button" data-lang-button="en" aria-pressed="false">EN</button></div>
+  </div></header>
+  <main>
+    <div class="eyebrow"><span data-lang="de">Rechtliches</span><span data-lang="en">Legal</span></div>
+    <h1><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></h1>
+    <p class="intro"><span data-lang="de">Angaben gem&auml;&szlig; &sect; 5 DDG.</span><span data-lang="en">Information according to Section 5 DDG.</span></p>
+    <section>
+      <h2><span data-lang="de">Anbieter</span><span data-lang="en">Provider</span></h2>
+      <address>
+        <strong>[Name / Firma des Anbieters]</strong><br>
+        [Stra&szlig;e und Hausnummer]<br>
+        [PLZ Ort]<br>
+        [Land]
+      </address>
+      <p><span data-lang="de">E-Mail:</span><span data-lang="en">Email:</span> <a href="mailto:[E-Mail-Adresse]" style="color: var(--accent);">[E-Mail-Adresse]</a></p>
+    </section>
+    <section>
+      <h2><span data-lang="de">Verantwortlich f&uuml;r den Inhalt</span><span data-lang="en">Responsible for content</span></h2>
+      <p>[Name des Verantwortlichen]<br>[Anschrift wie oben]</p>
+    </section>
+    <section>
+      <h2><span data-lang="de">Hinweis</span><span data-lang="en">Notice</span></h2>
+      <p class="notice"><span data-lang="de">Bitte ersetzen Sie die Angaben in eckigen Klammern vor der Ver&ouml;ffentlichung durch die vollst&auml;ndigen Unternehmens- und Kontaktdaten.</span><span data-lang="en">Replace the information in square brackets with the complete company and contact details before publishing.</span></p>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><img class="footer-logo" src="bmradio-logo.png" alt="BmRadio"><span><span data-lang="de">&copy; 2026 BmRadio. Alle Rechte vorbehalten.</span><span data-lang="en">&copy; 2026 BmRadio. All rights reserved.</span></span><div class="footer-links"><a href="impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a><a href="privacy.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a></div></div></footer>
+  <script>
+    const setLanguage = (language) => {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-lang]').forEach((element) => {
+        element.hidden = element.dataset.lang !== language;
+      });
+      document.querySelectorAll('[data-lang-button]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.langButton === language));
+      });
+      localStorage.setItem('bmradio-lang', language);
+    };
+    document.querySelectorAll('[data-lang-button]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.langButton)));
+    setLanguage(localStorage.getItem('bmradio-lang') === 'en' ? 'en' : 'de');
+    document.querySelectorAll('a[href]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const destination = new URL(link.href, window.location.href);
+        if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        document.body.classList.add('is-leaving');
+        const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 220;
+        window.setTimeout(() => { window.location.href = destination.href; }, delay);
+      });
+    });
+  </script>
+</body>
+</html>
