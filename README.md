@@ -6,7 +6,7 @@ GitHub Pages deployed directly from the `main` branch.
 ## Recommended GitHub Pages setup
 
 1. Push the complete repository to `main`. Keep `index.html`, `.nojekyll`, the legal
-   pages, and all PNG assets in the repository root.
+   pages, `404.html`, and all PNG assets in the repository root.
 2. Open **Settings → Pages** in GitHub.
 3. Set **Source** to **Deploy from a branch**.
 4. Select branch `main` and folder `/ (root)`, then click **Save**.
@@ -25,6 +25,7 @@ Enable **Enforce HTTPS** after DNS verification completes.
 ## Deployment checklist
 
 - `index.html` is lowercase and at the repository root.
+- `404.html` provides a branded fallback for unknown routes.
 - `.nojekyll` is committed; it prevents Jekyll from interpreting the embedded script.
 - `impressum.html`, `privacy.html`, `bmradio-logo.png`, `bmradio-texture.png`, and
   `bmradio-hero.png` are committed alongside the homepage.
