@@ -125,7 +125,7 @@ nav a:hover, nav a[aria-current="page"] { color: #fff; background: rgba(255,255,
 
 .lang-switch button[aria-pressed="true"] { color: #111; background: var(--accent); }
 
-main { max-width: 780px; padding: 72px 0 100px; }
+main { padding: 72px 0 100px; }
 .not-found { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
 .not-found .header-cta { margin-top: 24px; }
 .not-found .lang-switch { margin-top: 16px; }
